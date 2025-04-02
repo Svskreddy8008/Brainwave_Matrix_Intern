@@ -82,3 +82,35 @@ WHERE MemberID = 1;
 UPDATE Staff 
 SET FirstName = 'Raghav', LastName = 'Reddy'
 WHERE StaffID = 1;
+
+
+#Queries to handle customer orders
+
+
+SELECT title, isbn, available_copies
+FROM Books
+WHERE available_copies > 0;
+
+
+
+SELECT 
+    m.first_name, 
+    m.last_name, 
+    SUM(f.amount) AS total_fines
+FROM Fines f
+JOIN Members m ON f.member_id = m.member_id
+WHERE f.paid_status = FALSE
+GROUP BY m.member_id, m.first_name, m.last_name;
+
+
+
+UPDATE Books
+SET available_copies = available_copies - 1
+WHERE book_id = 1 AND available_copies > 0;
+
+
+
+
+
+
+
