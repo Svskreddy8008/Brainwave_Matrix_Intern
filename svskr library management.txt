@@ -91,6 +91,18 @@ SELECT title, isbn, available_copies
 FROM Books
 WHERE available_copies > 0;
 
+SELECT SUM(amount) AS total_fines
+FROM Fines
+WHERE member_id = 1;
+
+SELECT title, isbn
+FROM Books;
+
+
+SELECT first_name, last_name, join_date
+FROM Members
+WHERE email = 'virat.kohli@email.com';
+
 
 
 SELECT 
@@ -109,12 +121,21 @@ SET available_copies = available_copies - 1
 WHERE book_id = 1 AND available_copies > 0;
 
 
+UPDATE Loans
+SET return_date = '2025-04-01'
+WHERE loan_id = 1;
+
+
 DELETE FROM Members
 WHERE member_id = 1;
 
 
 INSERT INTO Books (title, isbn, publication_year, total_copies, available_copies)
 VALUES ('1984', '9780451524935', 1949, 4, 4);
+
+INSERT INTO Loans (book_id, member_id, loan_date, due_date)
+VALUES (2, 2, '2025-04-01', '2025-04-15');
+
 
 
 
