@@ -1,8 +1,8 @@
--- Create the database
+
 CREATE DATABASE LibraryManagement;
 USE LibraryManagement;
 
--- Create Books table
+
 CREATE TABLE Books (
     BookID INT AUTO_INCREMENT PRIMARY KEY,
     Title VARCHAR(255) NOT NULL,
@@ -14,7 +14,7 @@ CREATE TABLE Books (
     CHECK (AvailableCopies <= TotalCopies)
 );
 
--- Create Members table (JoinDate removed)
+
 CREATE TABLE Members (
     MemberID INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(50) NOT NULL,
@@ -23,7 +23,7 @@ CREATE TABLE Members (
     Phone VARCHAR(15)
 );
 
--- Create Staff table (HireDate removed)
+
 CREATE TABLE Staff (
     StaffID INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(50) NOT NULL,
@@ -31,7 +31,7 @@ CREATE TABLE Staff (
     Role VARCHAR(50) NOT NULL
 );
 
--- Create Authors table
+
 CREATE TABLE Authors (
     AuthorID INT AUTO_INCREMENT PRIMARY KEY,
     FirstName VARCHAR(50) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE Authors (
     Nationality VARCHAR(50)
 );
 
--- Create Book_Authors junction table
+
 CREATE TABLE Book_Authors (
     BookID INT,
     AuthorID INT,
@@ -48,7 +48,7 @@ CREATE TABLE Book_Authors (
     FOREIGN KEY (AuthorID) REFERENCES Authors(AuthorID) ON DELETE CASCADE
 );
 
--- Create Loans table
+
 CREATE TABLE Loans (
     LoanID INT AUTO_INCREMENT PRIMARY KEY,
     BookID INT,
@@ -62,10 +62,10 @@ CREATE TABLE Loans (
 
 
 
--- Use the existing database
+
 USE LibraryManagement;
 
--- Update Authors table (assuming AuthorID 1 and 2 exist)
+
 UPDATE Authors 
 SET FirstName = 'Arundhati', LastName = 'Roy', Nationality = 'Indian'
 WHERE AuthorID = 1;
@@ -74,7 +74,7 @@ UPDATE Authors
 SET FirstName = 'Chetan', LastName = 'Bhagat', Nationality = 'Indian'
 WHERE AuthorID = 2;
 
--- Update Members table (assuming MemberID 1 exists)
+
 UPDATE Members 
 SET FirstName = 'Rahul', LastName = 'Sharma', Email = 'rahul.sharma@email.com', Phone = '987-654-3210'
 WHERE MemberID = 1;
