@@ -67,19 +67,18 @@ USE LibraryManagement;
 
 
 UPDATE Authors 
-SET FirstName = 'Arundhati', LastName = 'Roy', Nationality = 'Indian'
+SET FirstName = 'Krishna', LastName = 'Reddy', Nationality = 'Indian'
 WHERE AuthorID = 1;
 
 UPDATE Authors 
-SET FirstName = 'Chetan', LastName = 'Bhagat', Nationality = 'Indian'
+SET FirstName = 'Venkat', LastName = 'Seelam', Nationality = 'Indian'
 WHERE AuthorID = 2;
 
 
 UPDATE Members 
-SET FirstName = 'Rahul', LastName = 'Sharma', Email = 'rahul.sharma@email.com', Phone = '987-654-3210'
+SET FirstName = 'Virt', LastName = 'Kohli', Email = 'virat.kohli@email.com', Phone = '9876543210'
 WHERE MemberID = 1;
 
--- Update Staff table (assuming StaffID 1 exists)
 UPDATE Staff 
-SET FirstName = 'Priya', LastName = 'Verma'
+SET FirstName = 'Raghav', LastName = 'Reddy'
 WHERE StaffID = 1;
