@@ -130,12 +130,27 @@ DELETE FROM Members
 WHERE member_id = 1;
 
 
+DELETE FROM Loans
+WHERE loan_id = 2 AND return_date IS NOT NULL;
+
+
 INSERT INTO Books (title, isbn, publication_year, total_copies, available_copies)
 VALUES ('1984', '9780451524935', 1949, 4, 4);
 
 INSERT INTO Loans (book_id, member_id, loan_date, due_date)
 VALUES (2, 2, '2025-04-01', '2025-04-15');
 
+
+
+INSERT INTO Books (title, isbn, publication_year, total_copies, available_copies)
+VALUES ('The Catcher in the Rye', '9780316769488', 1951, 3, 3);
+
+INSERT INTO Loans (book_id, member_id, loan_date, due_date)
+VALUES (LAST_INSERT_ID(), 1, '2025-04-01', '2025-04-15');
+
+UPDATE Books
+SET available_copies = available_copies - 1
+WHERE book_id = LAST_INSERT_ID();
 
 
 
